@@ -1,0 +1,19 @@
+{
+  "name": "bash_scripts",
+  "version": "1.0.251117164314",
+  "description": "Bash scripts for practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reecemillsom/Bash_Scripts.git"
+  },
+  "author": "Reece Millsom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reecemillsom/Bash_Scripts/issues"
+  },
+  "homepage": "https://github.com/reecemillsom/Bash_Scripts#readme"
+}
