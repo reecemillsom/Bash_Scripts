@@ -1,16 +1,29 @@
 #!/bin/bash
 packageJsonPath="./package.json" #Path to package.json
 
-packageJson=$(cat ${packageJsonPath}); #Grabs packageJson contents in current directory run
+if [ -e "$packageJsonPath" ]
+then
 
-versionNumberLine=$("${packageJson}" | grep -w "version" "${packageJsonPath}" | awk -F '["|"]' '{ print $4 }' "${versionNumberLine}");
+	echo "FILE FOUND";
 
-IFS="." read -r -a versionNumberArray <<< "$versionNumberLine";
+	packageJson=$(cat ${packageJsonPath}); #Grabs packageJson contents in current directory run
 
-dateTime=$(date "+%d%m%y%H%M%S"); #Date/timestamp currently formatted with no spaces or characters
+	versionNumberLine=$("${packageJson}" | grep -w "version" "${packageJsonPath}" | awk -F '["|"]' '{ print $4 }' "${versionNumberLine}");
 
-versionNumberArray[2]=${dateTime}; # Set the bug version to the dateTime
+	IFS="." read -r -a versionNumberArray <<< "$versionNumberLine"; #Splits string into array
 
-newVersion=${versionNumberArray[0]}"."${versionNumberArray[1]}"."${versionNumberArray[2]}; #Concatenate the major, minor and bug version.
+	dateTime=$(date "+%d%m%y%H%M%S"); #Date/timestamp currently formatted with no spaces or characters
 
-jq '.version='\"${newVersion}\" package.json|sponge package.json; #Assign value to be the new version
+	versionNumberArray[2]=${dateTime}; # Set the bug version to the dateTime
+
+	newVersion=${versionNumberArray[0]}"."${versionNumberArray[1]}"."${versionNumberArray[2]}; #Concatenate the major, minor and bug version.
+
+	jq '.version='\"${newVersion}\" package.json|sponge package.json; #Assign value to be the new version
+
+	exit 0;
+
+fi
+
+echo "FILE NOT FOUND";
+
+exit;
