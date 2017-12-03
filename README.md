@@ -13,5 +13,7 @@ For script **./scripts/update_package_version.sh** you will need:
 
 ## PS explanations
 
+To find these configurations, go to **PS_Configurations** directory. Can test these out by running the command in the terminal. If you want to make these permanent then configure in your ~/.bashrc.
+
 * **PS1:** Allows changing of your command prompt. To see current configuration use command ```echo $PS1```.
 * **PS2:** Allows changing of your command prompt. Useful when entering very long commands. To see current configuration use command ```echo $PS2```. To test this enter some random characters then put \ . e.g. abcdef \ hit enter and you shall see your PS2.
