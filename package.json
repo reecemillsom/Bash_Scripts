@@ -1,6 +1,6 @@
 {
   "name": "bash_scripts",
-  "version": "1.0.031217173837",
+  "version": "1.0.031217215123",
   "description": "Bash scripts for practice",
   "main": "index.js",
   "scripts": {
